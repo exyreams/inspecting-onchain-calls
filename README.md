@@ -11,14 +11,13 @@
 **Block Explorer Link:**  [https://etherscan.io/token/0xdeFA4e8a7bcBA345F687a2f1456F5Edd9CE97202#code](https://etherscan.io/token/0xdeFA4e8a7bcBA345F687a2f1456F5Edd9CE97202#code)  
 **Function Code:**
 
-`constructor(address _logic, bytes memory _data) public payable {
-    assert(IMPLEMENTATION_SLOT == bytes32(uint256(keccak256("eip1967.proxy.implementation")) - 1));
-    _setImplementation(_logic);
-    if (_data.length > 0) {
-        (bool success,) = _logic.delegatecall(_data);
-        require(success);
-    } }`
-
+    constructor(address _logic, bytes memory _data) public payable {
+        assert(IMPLEMENTATION_SLOT == bytes32(uint256(keccak256("eip1967.proxy.implementation")) - 1));
+        _setImplementation(_logic);
+        if (_data.length > 0) {
+            (bool success,) = _logic.delegatecall(_data);
+            require(success);
+        } }
 **Used Encoding/Decoding or Call Method:** `delegatecall`
 
 ### Explanation
